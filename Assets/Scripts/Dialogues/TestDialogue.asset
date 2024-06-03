@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
+  m_Name: TestDialogue
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueText: Yow, Im NPC
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: What are you doing?
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: I have a task for you.
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: Can you do this?
+    dialogueDisplayTime: 2
+    dialogueChoices:
+    - dialogueChoice: Yes
+      followOnDialogue: {fileID: 11400000, guid: 099281f5089807547b2b445bf992344b, type: 2}
+    - dialogueChoice: No
+      followOnDialogue: {fileID: 11400000, guid: 0d76fc49b47a6044c9f4cf9d1e015fa2, type: 2}
+    - dialogueChoice: Hakdog
+      followOnDialogue: {fileID: 11400000, guid: b560d3adc72a0534eb5a4afa84b9eb8a, type: 2}
+  endDialogue: {fileID: 0}
