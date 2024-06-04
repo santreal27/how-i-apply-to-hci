@@ -10,15 +10,18 @@ public class UIDialogueOption : MonoBehaviour
     DialogueObject dialogueObject;
 
     [SerializeField] TMP_Text dialogueText;
-    public void Setup(DialogueInteract _dialogueInteract, DialogueObject _dialogueObject, string _dialogueText)
+
+    GameEvent gameEvent;
+    public void Setup(DialogueInteract _dialogueInteract, DialogueObject _dialogueObject, string _dialogueText, GameEvent _gameEvent)
     {
         dialogueInteract = _dialogueInteract;
         dialogueObject = _dialogueObject;
         dialogueText.text = _dialogueText;
+        gameEvent = _gameEvent;
     }
 
     public void SelectOption()
     {
-        dialogueInteract.OptionSelected(dialogueObject);
+        dialogueInteract.OptionSelected(dialogueObject , gameEvent);
     }
 }

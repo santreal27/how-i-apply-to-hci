@@ -23,6 +23,8 @@ public struct DialogueSegment
 
     public List<DialogueChoice> dialogueChoices;
 
+  
+
 }
 
 [System.Serializable]
@@ -31,4 +33,6 @@ public struct DialogueChoice
     public string dialogueChoice;
 
     public DialogueObject followOnDialogue;
+
+    public GameEvent gameEventToBeCalled;
 }

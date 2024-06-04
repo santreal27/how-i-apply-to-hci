@@ -21,6 +21,8 @@ public class DialogueInteract : MonoBehaviour
     [Header("Game Event")]
     public GameEvent onDialogueFinished;
 
+    GameEvent gameEventToBeCalled;
+
     bool isPlayerInRange = false;
     public void StartDialogue()
     {
@@ -32,11 +34,13 @@ public class DialogueInteract : MonoBehaviour
    
     }
 
-    public void OptionSelected(DialogueObject selectedOption)
+    public void OptionSelected(DialogueObject selectedOption, GameEvent gameEvent)
     {
         optionSelected = true;
         dialogueObject = selectedOption;
+        gameEventToBeCalled = gameEvent;
         StartDialogue();
+        
     }
   
 
@@ -60,7 +64,7 @@ public class DialogueInteract : MonoBehaviour
                 foreach (var option in dialogue.dialogueChoices)
                 {
                     GameObject newButton = Instantiate(dialogueOptionsButtonPrefab, dialogueOptionsParent);
-                    newButton.GetComponent<UIDialogueOption>().Setup(this, option.followOnDialogue, option.dialogueChoice);
+                    newButton.GetComponent<UIDialogueOption>().Setup(this, option.followOnDialogue, option.dialogueChoice,option.gameEventToBeCalled);
                 }
                 while (!optionSelected)
                 {
@@ -74,6 +78,10 @@ public class DialogueInteract : MonoBehaviour
         dialogueOptionsContainer.SetActive(false);
         dialogueCanvas.gameObject.SetActive(false);
         onDialogueFinished.Raise(this, 1);
+        if(gameEventToBeCalled != null)
+        {
+            gameEventToBeCalled.Raise(this, 1);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

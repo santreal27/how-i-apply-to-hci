@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
+  m_Name: Dialogue_Minigame1
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueText: This is a puzzle Task. Do you want to start ?
+    dialogueDisplayTime: 2
+    dialogueChoices:
+    - dialogueChoice: Yes
+      followOnDialogue: {fileID: 11400000, guid: 78a7ac6d8536b2f44bacb2172833e811, type: 2}
+      gameEventToBeCalled: {fileID: 11400000, guid: fdc3d6eac9fb19742b9443d683c0312e, type: 2}
+    - dialogueChoice: No
+      followOnDialogue: {fileID: 11400000, guid: 54e73528525d2864997acb85187a51ff, type: 2}
+      gameEventToBeCalled: {fileID: 0}
+  - dialogueText: 
+    dialogueDisplayTime: 0
+    dialogueChoices: []
+  endDialogue: {fileID: 0}
