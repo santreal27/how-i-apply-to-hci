@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -24,9 +26,14 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
     public int score;
 
-    void SaveScene()
+    
+    public void LoadScene(Component sender, object data)
     {
-
+        if(data is string id)
+        {
+            SceneManager.LoadScene(id);
+        }
+        
     }
 
 }

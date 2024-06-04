@@ -271,7 +271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352116874
 GameObject:
@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 352116877}
   - component: {fileID: 352116876}
   - component: {fileID: 352116879}
+  - component: {fileID: 352116880}
   m_Layer: 0
   m_Name: Interactable1
   m_TagString: Interactable
@@ -506,6 +507,34 @@ MonoBehaviour:
   onDialogueFinished: {fileID: 11400000, guid: c13ea7c1c4c89b14b9ea9eb0437b7ca4, type: 2}
   isFinished: 0
   onInteract: {fileID: 11400000, guid: 9aada1180c6c1244397be8ee7feb64b0, type: 2}
+--- !u!114 &352116880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352116874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf640f954defc746b24453898b92133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 136b0ba07e0555c428e37c04bfb14ead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 352116879}
+        m_TargetAssemblyTypeName: DialogueInteract, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &407503080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3315,7 @@ GameObject:
   - component: {fileID: 1547860222}
   - component: {fileID: 1547860221}
   - component: {fileID: 1547860220}
+  - component: {fileID: 1547860224}
   m_Layer: 0
   m_Name: Interactable2
   m_TagString: Interactable
@@ -3325,7 +3355,7 @@ MonoBehaviour:
   dialogueOptionsParent: {fileID: 1915775849}
   dialogueOptionsButtonPrefab: {fileID: 6108639388599939939, guid: 6dadde3c6bb5e8e4abf7fbddcd60d88c, type: 3}
   dialogueText: {fileID: 2091152799}
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: ebbe49e8f3e243a4c8a9a0f59d602857, type: 2}
   onDialogueFinished: {fileID: 11400000, guid: c13ea7c1c4c89b14b9ea9eb0437b7ca4, type: 2}
   isFinished: 0
   onInteract: {fileID: 11400000, guid: 9aada1180c6c1244397be8ee7feb64b0, type: 2}
@@ -3506,6 +3536,34 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1547860224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547860218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf640f954defc746b24453898b92133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 136b0ba07e0555c428e37c04bfb14ead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 352116879}
+        m_TargetAssemblyTypeName: DialogueInteract, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1567604161
 GameObject:
   m_ObjectHideFlags: 0
@@ -12018,7 +12076,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687586164
 GameObject:
@@ -12208,6 +12266,9 @@ GameObject:
   - component: {fileID: 1905936509}
   - component: {fileID: 1905936508}
   - component: {fileID: 1905936510}
+  - component: {fileID: 1905936511}
+  - component: {fileID: 1905936512}
+  - component: {fileID: 1905936513}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12234,7 +12295,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905936507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.089225, y: 0.6425809, z: -0.029039297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12255,6 +12316,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+--- !u!114 &1905936511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905936507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf640f954defc746b24453898b92133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fdc3d6eac9fb19742b9443d683c0312e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1905936510}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1905936512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905936507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf640f954defc746b24453898b92133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: bc18ca963b749744babb46cb74251f3a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1905936510}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1905936513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905936507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c4906301ba1346b1417c98aa176b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 1290673115}
+  dialogueOptionsContainer: {fileID: 673396706}
+  dialogueOptionsParent: {fileID: 1915775849}
+  dialogueOptionsButtonPrefab: {fileID: 6108639388599939939, guid: 6dadde3c6bb5e8e4abf7fbddcd60d88c, type: 3}
+  dialogueText: {fileID: 2091152799}
+  dialogueObject: {fileID: 11400000, guid: 05c72a53f8b764c448cc85a2dc54d896, type: 2}
+  onDialogueFinished: {fileID: 11400000, guid: c13ea7c1c4c89b14b9ea9eb0437b7ca4, type: 2}
 --- !u!1 &1915775848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12347,7 +12483,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1999054195
 GameObject:
@@ -12634,50 +12770,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091152797}
   m_CullTransparentMesh: 1
---- !u!1 &2122607553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2122607554}
-  - component: {fileID: 2122607555}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2122607554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122607553}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1319127, y: 0.45792374, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2122607555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122607553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195374d48677e29408f0ae9b4490c032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2136578973
 GameObject:
   m_ObjectHideFlags: 0

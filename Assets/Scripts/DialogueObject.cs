@@ -11,6 +11,12 @@ public class DialogueObject : ScriptableObject
 
     [Header("Follow on Dialogue - Optional")]
     public DialogueObject endDialogue;
+
+    [Header("Game Event Related - Optional")]
+    public GameEvent gameEvent;
+
+    public string gameEventId;
+
  
 }
 
@@ -34,5 +40,4 @@ public struct DialogueChoice
 
     public DialogueObject followOnDialogue;
 
-    public GameEvent gameEventToBeCalled;
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class DialogueInteract : MonoBehaviour
 {
@@ -16,14 +17,13 @@ public class DialogueInteract : MonoBehaviour
     [Header("Dialogue Object")]
     [SerializeField] DialogueObject dialogueObject;
         
-    bool optionSelected = false;
+    protected bool optionSelected = false;
 
     [Header("Game Event")]
     public GameEvent onDialogueFinished;
 
-    GameEvent gameEventToBeCalled;
 
-    bool isPlayerInRange = false;
+    protected bool isPlayerInRange = false;
     public void StartDialogue()
     {
         if (isPlayerInRange)
@@ -34,11 +34,10 @@ public class DialogueInteract : MonoBehaviour
    
     }
 
-    public void OptionSelected(DialogueObject selectedOption, GameEvent gameEvent)
+    public void OptionSelected(DialogueObject selectedOption)
     {
         optionSelected = true;
         dialogueObject = selectedOption;
-        gameEventToBeCalled = gameEvent;
         StartDialogue();
         
     }
@@ -64,7 +63,7 @@ public class DialogueInteract : MonoBehaviour
                 foreach (var option in dialogue.dialogueChoices)
                 {
                     GameObject newButton = Instantiate(dialogueOptionsButtonPrefab, dialogueOptionsParent);
-                    newButton.GetComponent<UIDialogueOption>().Setup(this, option.followOnDialogue, option.dialogueChoice,option.gameEventToBeCalled);
+                    newButton.GetComponent<UIDialogueOption>().Setup(this, option.followOnDialogue, option.dialogueChoice);
                 }
                 while (!optionSelected)
                 {
@@ -78,20 +77,21 @@ public class DialogueInteract : MonoBehaviour
         dialogueOptionsContainer.SetActive(false);
         dialogueCanvas.gameObject.SetActive(false);
         onDialogueFinished.Raise(this, 1);
-        if(gameEventToBeCalled != null)
+
+        if (dialogueObject.gameEvent != null)
         {
-            gameEventToBeCalled.Raise(this, 1);
+            dialogueObject.gameEvent.Raise(this,dialogueObject.gameEventId);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

@@ -10,12 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
-  m_Name: Dialogue_Minigame1_ResponseNo
+  m_Name: Dialogue_Minigame2
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - dialogueText: Okay, if you are ready to complete your application, go back here.
+  - dialogueText: 'This is another Task to completed. A rhythm game. Do you want
+      to start? '
+    dialogueDisplayTime: 4
+    dialogueChoices:
+    - dialogueChoice: Yes
+      followOnDialogue: {fileID: 11400000, guid: 737fc1ed05c599140a9f1090719dd53b, type: 2}
+    - dialogueChoice: No
+      followOnDialogue: {fileID: 11400000, guid: fd055c265e0445e4d87e1b78aca606a4, type: 2}
+  - dialogueText: Ka
     dialogueDisplayTime: 2
     dialogueChoices: []
   endDialogue: {fileID: 0}
-  gameEvent: {fileID: 11400000, guid: fdc3d6eac9fb19742b9443d683c0312e, type: 2}
+  gameEvent: {fileID: 0}
   gameEventId: 

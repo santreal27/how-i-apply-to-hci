@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
-  m_Name: Dialogue_Minigame1_ResponseYes
+  m_Name: Dialogue_StartGame
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - dialogueText: Starting....
-    dialogueDisplayTime: 3
+  - dialogueText: This is your journey of you application to HCI
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: Find and talk to the HR
+    dialogueDisplayTime: 2
     dialogueChoices: []
   endDialogue: {fileID: 0}
-  gameEvent: {fileID: 11400000, guid: fdc3d6eac9fb19742b9443d683c0312e, type: 2}
-  gameEventId: Minigame1
+  gameEvent: {fileID: 0}
+  gameEventId: 
