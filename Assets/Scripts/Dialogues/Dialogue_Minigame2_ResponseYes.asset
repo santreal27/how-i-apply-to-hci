@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_Minigame2_ResponseYes
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - dialogueText: 
-    dialogueDisplayTime: 0
+  - dialogueText: Starting...
+    dialogueDisplayTime: 2
     dialogueChoices: []
   endDialogue: {fileID: 0}
   gameEvent: {fileID: 11400000, guid: bc18ca963b749744babb46cb74251f3a, type: 2}
+  gameEventId: Minigame2

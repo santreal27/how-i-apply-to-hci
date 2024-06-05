@@ -12,26 +12,32 @@ public class MinigamePuzzle : MonoBehaviour
     private List<Transform> pieces;
     private int emptyLocation;
     private int size;
-    private bool isShuffling = false;
-
+    [SerializeField]private bool isShuffling = false;
+    public float waitTime = 0f;
+    [Header("Game Event")]
+    public GameEvent puzzleStart;
     public GameEvent puzzleCompletedEvent;
+    public GameEvent goToMainGameEvent;
 
     private void Start()
     {
         pieces = new List<Transform>();
         size = 3;
         CreateGamePiece(0.01f);
+        if (!isShuffling)
+        {
+            isShuffling = true;
+            StartCoroutine(WaitShuffle(waitTime));
+        }
+
+
     }
     private void Update()
     {
+       
+    
 
-        if(!isShuffling && CheckCompletion())
-        {
-            isShuffling = true;
-            StartCoroutine(WaitShuffle(5f));
-        }
-
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !isShuffling)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit)
@@ -54,19 +60,25 @@ public class MinigamePuzzle : MonoBehaviour
 
     private bool CheckCompletion()
     {
+        
         for(int i = 0; i < pieces.Count; i++)
         {
             if (pieces[i].name != $"{i}")
                 return false;
-               
+            Debug.Log("Not Completed Yet");
+            
         }
+        puzzleCompletedEvent.Raise(this, 1);
+        Debug.Log("Completed");
         return true;
+ 
     }
 
     IEnumerator WaitShuffle(float duration)
     {
         yield return new WaitForSeconds(duration);
         Shuffle();
+        puzzleStart.Raise(this,true);
         isShuffling = false;
     }
 
@@ -136,13 +148,19 @@ public class MinigamePuzzle : MonoBehaviour
             (pieces[i].localPosition, pieces[i + offset].localPosition) = ((pieces[i + offset].localPosition, pieces[i].localPosition));
             //Update empty location
             emptyLocation = i;
+
+            CheckCompletion();  
+
             return true;
 
         }
         return false;
     }
 
-    
+    public void GoToMainGame()
+    {
+        goToMainGameEvent.Raise(this, "MainGame");
+    }
 
 
 

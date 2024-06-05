@@ -4,7 +4,7 @@ using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     #region Singleton
     private void Awake()
@@ -22,18 +22,14 @@ public class MainManager : MonoBehaviour
     }
 
     #endregion
-
-    public static MainManager Instance;
+ 
+    public static ScoreManager Instance;
     public int score;
 
-    
-    public void LoadScene(Component sender, object data)
-    {
-        if(data is string id)
-        {
-            SceneManager.LoadScene(id);
-        }
-        
-    }
 
+
+    public void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+    }
 }

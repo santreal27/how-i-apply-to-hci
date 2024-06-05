@@ -16,13 +16,13 @@ public class DialogueInteract : MonoBehaviour
 
     [Header("Dialogue Object")]
     [SerializeField] DialogueObject dialogueObject;
-        
+    
     protected bool optionSelected = false;
 
     [Header("Game Event")]
     public GameEvent onDialogueFinished;
 
-
+   [SerializeField] List<GameObject> optionGameObjects = new List<GameObject>();
     protected bool isPlayerInRange = false;
     public void StartDialogue()
     {
@@ -38,6 +38,7 @@ public class DialogueInteract : MonoBehaviour
     {
         optionSelected = true;
         dialogueObject = selectedOption;
+        StopAllCoroutines();
         StartDialogue();
         
     }
@@ -45,10 +46,19 @@ public class DialogueInteract : MonoBehaviour
 
     IEnumerator DisplayDialogue()
     {
+        //Deleting Options
+        if (optionGameObjects.Count > 0)
+        {
+            foreach (var go in optionGameObjects)
+            {
+                Destroy(go);
+            }
+        }
         yield return null;
         dialogueCanvas.gameObject.SetActive(true);
         foreach(var dialogue in dialogueObject.dialogueSegments)
         {
+            
             dialogueText.text = dialogue.dialogueText;
 
             if(dialogue.dialogueChoices.Count == 0 )
@@ -59,11 +69,15 @@ public class DialogueInteract : MonoBehaviour
               
             else
             {
-                dialogueOptionsContainer.SetActive(true); 
+                dialogueOptionsContainer.SetActive(true);
+                optionSelected = false;
                 foreach (var option in dialogue.dialogueChoices)
                 {
                     GameObject newButton = Instantiate(dialogueOptionsButtonPrefab, dialogueOptionsParent);
                     newButton.GetComponent<UIDialogueOption>().Setup(this, option.followOnDialogue, option.dialogueChoice);
+
+                    //add option game object to track 
+                    optionGameObjects.Add(newButton);
                 }
                 while (!optionSelected)
                 {
@@ -74,14 +88,24 @@ public class DialogueInteract : MonoBehaviour
             }
         }
 
-        dialogueOptionsContainer.SetActive(false);
-        dialogueCanvas.gameObject.SetActive(false);
+       
+       
+        //RaiseEvent
         onDialogueFinished.Raise(this, 1);
 
         if (dialogueObject.gameEvent != null)
         {
             dialogueObject.gameEvent.Raise(this,dialogueObject.gameEventId);
         }
+
+        if(dialogueObject.endDialogue != null)
+        {
+            dialogueObject = dialogueObject.endDialogue;
+        }
+     
+        dialogueOptionsContainer.SetActive(false);
+        dialogueCanvas.gameObject.SetActive(false);
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

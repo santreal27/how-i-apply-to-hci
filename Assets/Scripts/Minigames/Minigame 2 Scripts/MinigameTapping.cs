@@ -14,8 +14,15 @@ public class MinigameTapping : MonoBehaviour
     [SerializeField] int correctKeys = 0;
     [SerializeField] int wrongKeys = 0;
 
+    [Header("UI Variables")]
     [SerializeField] private TMP_Text correctScoreText, missedScoreText;
     [SerializeField] private TMP_Text finalCorrectScore, finalMissedScore;
+    [SerializeField] private TMP_Text finalScoreText;
+
+    [Header("Game Event")]
+    public GameEvent goToMainGameEvent;
+
+    int finalScore = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,10 +64,23 @@ public class MinigameTapping : MonoBehaviour
                 missedScoreText.text = wrongKeys.ToString();
                 finalMissedScore.text = wrongKeys.ToString();
            }
-                
-            
+
+           
         }
         
+    }
+
+    public void ConvertScore()
+    {
+        finalScore = (correctKeys - wrongKeys) * 100;
+        finalScoreText.text = "Final Score: " + finalScore.ToString();
+        ScoreManager.Instance.AddScore(finalScore);
+
+    }
+
+    public void GoToMainGame()
+    {
+        goToMainGameEvent.Raise(this, "MainGame");
     }
 
    

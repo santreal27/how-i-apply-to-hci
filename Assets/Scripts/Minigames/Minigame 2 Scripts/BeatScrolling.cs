@@ -32,9 +32,16 @@ public class BeatScrolling : MonoBehaviour
         {
             transform.Translate(Vector2.down * beatTempo * Time.deltaTime);
         }
-        if(transform.childCount <= 0)
+       
+    }
+
+    public void CheckIfCleared()
+    {
+        Debug.Log("Child Count" +transform.childCount);
+        if (transform.childCount <= 1)
         {
             onKeysCleared.Raise(this, 0);
+            Debug.Log("Pattern Cleared");
         }
     }
 }

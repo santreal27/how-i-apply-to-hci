@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_Minigame2_ResponseNo
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - dialogueText: 
+  - dialogueText: If you are ready, come back.
     dialogueDisplayTime: 2
     dialogueChoices: []
-  endDialogue: {fileID: 0}
-  gameEvent: {fileID: 11400000, guid: bc18ca963b749744babb46cb74251f3a, type: 2}
+  endDialogue: {fileID: 11400000, guid: ebbe49e8f3e243a4c8a9a0f59d602857, type: 2}
+  gameEvent: {fileID: 0}
   gameEventId: 
