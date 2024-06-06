@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
+  m_Name: Dialogue_HR
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueText: Hello, job-seeker. You are here applying for the job?
+    dialogueDisplayTime: 4
+    dialogueChoices: []
+  - dialogueText: For you to be accepted, you must find the computers.
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: With the computers, you must complete the task.
+    dialogueDisplayTime: 4
+    dialogueChoices: []
+  - dialogueText: Each task will be scored based on your speed and accuracy.
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: 'After completing the task, the door to the boss will be open. '
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: He will give you the job based on your grade.
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  - dialogueText: Good Luck to you, Job-seeker.
+    dialogueDisplayTime: 2
+    dialogueChoices: []
+  endDialogue: {fileID: 0}
+  gameEvent: {fileID: 0}
+  gameEventId: 

@@ -34,8 +34,6 @@ public class MinigamePuzzle : MonoBehaviour
     }
     private void Update()
     {
-       
-    
 
         if (Input.GetMouseButton(0) && !isShuffling)
         {
@@ -69,7 +67,7 @@ public class MinigamePuzzle : MonoBehaviour
             
         }
         puzzleCompletedEvent.Raise(this, 1);
-        Debug.Log("Completed");
+        ScoreManager.Instance.CompletedMinigame();
         return true;
  
     }

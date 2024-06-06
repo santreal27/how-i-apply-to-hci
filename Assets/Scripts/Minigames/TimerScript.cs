@@ -44,7 +44,7 @@ public class TimerScript : MonoBehaviour
     public void AddScore()
     {
 
-        score = 100000 / Mathf.RoundToInt(elapsedTime);
+        score = 50000 / Mathf.RoundToInt(elapsedTime);
         scoreText.text = "Score: "+ score.ToString();
         ScoreManager.Instance.AddScore(score);
     }

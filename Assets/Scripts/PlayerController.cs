@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
 
+     
 
     }
  
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
                 OnInteract();
 
         };
+
+    
   
     }
     private void Update()
@@ -93,5 +96,23 @@ public class PlayerController : MonoBehaviour
     {
         canMove = true;
         //InputSystem.EnableDevice(Keyboard.current);
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        if(SaveSystem.LoadPlayer() != null)
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            Vector2 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+
+            transform.position = position;
+        }
     }
 }

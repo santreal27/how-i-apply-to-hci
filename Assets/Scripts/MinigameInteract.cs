@@ -8,7 +8,7 @@ public class MinigameInteract : DialogueInteract
     [SerializeField] bool isFinished;
     [SerializeField] GameEvent onInteract;
     
-    
+     
     public void OnFinishedGame()
     {
         isFinished = true;

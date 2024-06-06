@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2c7fbbee7071a468ac72de50e2f2e9, type: 3}
-  m_Name: TestDialogue
+  m_Name: Dialogue_Door_Completed
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - dialogueText: 'Yow, I work here. '
+  - dialogueText: You have now completed the Tasks.
     dialogueDisplayTime: 2
     dialogueChoices: []
-  - dialogueText: What are you doing? Go do your task.
+  - dialogueText: The door will open.
     dialogueDisplayTime: 2
     dialogueChoices: []
   endDialogue: {fileID: 0}
-  gameEvent: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: c12933fb66d8d614f828c50d7361a1ad, type: 2}
   gameEventId: 

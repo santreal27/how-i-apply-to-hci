@@ -42,6 +42,7 @@ public class BeatScrolling : MonoBehaviour
         {
             onKeysCleared.Raise(this, 0);
             Debug.Log("Pattern Cleared");
+            ScoreManager.Instance.CompletedMinigame();
         }
     }
 }

@@ -11,4 +11,18 @@ public class SceneScript : MonoBehaviour
             SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadMainGame()
+    {
+        SceneManager.LoadScene("MainGame");
+        ScoreManager.Instance.ResetMinigame();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

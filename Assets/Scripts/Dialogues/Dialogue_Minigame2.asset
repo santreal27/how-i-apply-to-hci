@@ -24,6 +24,6 @@ MonoBehaviour:
   - dialogueText: Ka
     dialogueDisplayTime: 2
     dialogueChoices: []
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: 91c7aff213cdf754cb4268e97d96ee0b, type: 2}
   gameEvent: {fileID: 0}
   gameEventId: 

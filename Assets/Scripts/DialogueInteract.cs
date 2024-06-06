@@ -15,16 +15,16 @@ public class DialogueInteract : MonoBehaviour
     [SerializeField] TMP_Text dialogueText;
 
     [Header("Dialogue Object")]
-    [SerializeField] DialogueObject dialogueObject;
+    [SerializeField] protected DialogueObject dialogueObject;
     
     protected bool optionSelected = false;
 
     [Header("Game Event")]
     public GameEvent onDialogueFinished;
 
-   [SerializeField] List<GameObject> optionGameObjects = new List<GameObject>();
+    List<GameObject> optionGameObjects = new List<GameObject>();
     protected bool isPlayerInRange = false;
-    public void StartDialogue()
+    public virtual void StartDialogue()
     {
         if (isPlayerInRange)
         {
@@ -54,17 +54,19 @@ public class DialogueInteract : MonoBehaviour
                 Destroy(go);
             }
         }
-        yield return null;
+       // yield return null;
         dialogueCanvas.gameObject.SetActive(true);
-        foreach(var dialogue in dialogueObject.dialogueSegments)
+        foreach (var dialogue in dialogueObject.dialogueSegments)
         {
-            
+
             dialogueText.text = dialogue.dialogueText;
 
-            if(dialogue.dialogueChoices.Count == 0 )
+            if (dialogue.dialogueChoices.Count == 0)
             {
                 dialogueOptionsContainer.SetActive(false);
                 yield return new WaitForSeconds(dialogue.dialogueDisplayTime);
+                
+                //yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             }
               
             else
@@ -91,6 +93,7 @@ public class DialogueInteract : MonoBehaviour
        
        
         //RaiseEvent
+        
         onDialogueFinished.Raise(this, 1);
 
         if (dialogueObject.gameEvent != null)

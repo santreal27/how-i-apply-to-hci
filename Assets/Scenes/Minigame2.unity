@@ -2693,6 +2693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  minigameCompleted: 
 --- !u!4 &1187678284
 Transform:
   m_ObjectHideFlags: 0
